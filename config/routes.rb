@@ -7,4 +7,6 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   resources :lessons, only: [:index, :show, :create]
+  resources :subjects, only: [:index, :show, :create]
+  resources :grammar_rules, only: [:index, :show, :create]
 end

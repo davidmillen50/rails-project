@@ -4,6 +4,7 @@ class GrammarRule < ApplicationRecord
   has_many :lessons, through: :lesson_grammar_rules
 
   validate :subject_must_be_grammar
+  validates :title, presence: true
 
   private
 

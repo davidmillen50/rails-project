@@ -2,7 +2,10 @@ require "test_helper"
 
 class LessonsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @lesson = Lesson.create!(title: "Sample Lesson", body: "Lesson body")
+    @grammar_subject = Subject.find_by(title: "Grammar")
+    @lesson = Lesson.create!(title: "Sample Lesson One", body: "Lesson body One", subject: @grammar_subject)
+    @grammar_rule = GrammarRule.create!(title: "Sample Grammar Rule", description: "Grammar rule description", subject: @grammar_subject)
+    @lesson.grammar_rules << @grammar_rule
   end
 
   test "should get index" do
@@ -23,7 +26,7 @@ class LessonsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create lesson" do
     assert_difference("Lesson.count") do
-      post lessons_url, params: { lesson: { title: "New Lesson", body: "New body" } }, as: :json
+      post lessons_url, params: { lesson: { title: "New Lesson", body: "New body", subject_id: @grammar_subject.id } }, as: :json
     end
     assert_response :created
     body = JSON.parse(response.body)

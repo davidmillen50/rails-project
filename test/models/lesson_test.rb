@@ -14,7 +14,7 @@ class LessonTest < ActiveSupport::TestCase
   end
 
   test "is valid with both title and body" do
-    lesson = Lesson.new(title: "Sample title", body: "Sample body")
+    lesson = Lesson.new(title: "Sample title", body: "Sample body", subject: Subject.first)
     assert lesson.valid?
   end
 end
