@@ -5,16 +5,16 @@ class GrammarRulesController < ApplicationController
   end
 
   def show
-    grammar_rules = GrammarRule.find(params[:id])
-    render json: grammar_rules
+    grammar_rule = GrammarRule.find(params[:id])
+    render json: grammar_rule
   end
 
   def create
-    grammar_rules = GrammarRule.new(post_params)
-    if grammar_rules.save
-      render json: grammar_rules, status: :created
+    grammar_rule = GrammarRule.new(post_params)
+    if grammar_rule.save
+      render json: grammar_rule, status: :created
     else
-      render json: grammar_rules.errors, status: :unprocessable_entity
+      render json: grammar_rule.errors, status: :unprocessable_entity
     end
   end
 

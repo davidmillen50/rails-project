@@ -54,7 +54,7 @@ GrammarRule.create!([
     example_two: "Past tense: I went, you (singular) went, he/she/it went, we went, you (plural) went, they went.",
     example_two_explanation: "The past tense denotes actions that occured before the present time.",
     example_three: "Future tense: I will go, you (singular) will go, he/she/it will go, we will go, you (plural) will go, they will go.",
-    example_three_explanation: "The future tense denotes actions that will occur in the future (after the present time).",
+    example_three_explanation: "The future tense denotes actions that will occur in the future (after the present time)."
   },
   {
     title: "Person",
@@ -128,7 +128,7 @@ GrammarRule.create!([
     example_one: "The cat chased a piece of string.",
     example_one_explanation: "'Cat' is a singular noun because there is only one cat. 'A piece of string' is also singular because it refers to one piece of string.",
     example_two: "The cats chased two pieces of string.",
-    example_two_explanation: "'Cats' and 'pieces of string' are plural because there are multiple cats and multiple pieces of string.  When conjugating the relevant verbs in a sentence you must ensure that the verb denotes the correct quantity.  For example, 'the cat leaps over the fence' (singular) compared to 'the cats leap over the fence' (plural).  The quantity of something also determines the pronouns used.  For example 'I saw him yesterday' (singular) compared to 'I saw them yesterday' (plural).",
+    example_two_explanation: "'Cats' and 'pieces of string' are plural because there are multiple cats and multiple pieces of string.  When conjugating the relevant verbs in a sentence you must ensure that the verb denotes the correct quantity.  For example, 'the cat leaps over the fence' (singular) compared to 'the cats leap over the fence' (plural).  The quantity of something also determines the pronouns used.  For example 'I saw him yesterday' (singular) compared to 'I saw them yesterday' (plural)."
   },
   {
     title: "Cases",
@@ -136,7 +136,7 @@ GrammarRule.create!([
     subject: subjects["grammar"],
     example_one: "I (nominative) saw him (accusative) yesterday with his (genitive) briefcase.",
     example_one_explanation: "Nomintive case is used for the subject, accusative for the object, dative for the indirect object and genitive for possession.",
-    example_two: "He (nominativ/subject) gave her (dative/indirect object) a present (accusative/object) for her (genitive) birthday.",
+    example_two: "He (nominativ/subject) gave her (dative/indirect object) a present (accusative/object) for her (genitive) birthday."
   },
   {
     title: "Moods",
@@ -156,7 +156,7 @@ GrammarRule.create!([
     description: "Interrogative words are those which are used when asking questions.",
     subject: subjects["grammar"],
     example_one: "Who, Where, When, What, Why, How",
-    example_one_explanation: "These words each indicate a question is being asked and a question mark (?) should be used at the end of the question.  'Who' relates to a person as in 'Who took the chocolate?' - I am asking for the person who took the chocolate.  'Where' relates to a location or place as in 'Where was the chocolate stored?' I am asking for the place the chocolate was stored.  'When' relates to time as in 'When was the chocolate last seen?' - I am asking for the time/day the chocolate was last seen.  'What' relates to an object as in 'What was the chocolate stored in?' - here I am looking to find out in what object the chocolate was stored.  'Why' relates to asking for a reason behind something for example 'Why was the chocolate stolen?' - here I am asking for the reason behind the stealing of the chocolate.  'How' relates to the way in which an action took place for example, 'How was the chocolate stolen?' - here I am asking for the way in which the chocolate was stolen.",
+    example_one_explanation: "These words each indicate a question is being asked and a question mark (?) should be used at the end of the question.  'Who' relates to a person as in 'Who took the chocolate?' - I am asking for the person who took the chocolate.  'Where' relates to a location or place as in 'Where was the chocolate stored?' I am asking for the place the chocolate was stored.  'When' relates to time as in 'When was the chocolate last seen?' - I am asking for the time/day the chocolate was last seen.  'What' relates to an object as in 'What was the chocolate stored in?' - here I am looking to find out in what object the chocolate was stored.  'Why' relates to asking for a reason behind something for example 'Why was the chocolate stolen?' - here I am asking for the reason behind the stealing of the chocolate.  'How' relates to the way in which an action took place for example, 'How was the chocolate stolen?' - here I am asking for the way in which the chocolate was stolen."
   }
 ])
 
