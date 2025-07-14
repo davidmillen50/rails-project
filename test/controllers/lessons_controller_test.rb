@@ -41,4 +41,42 @@ class LessonsControllerTest < ActionDispatch::IntegrationTest
     body = JSON.parse(response.body)
     assert body.present?
   end
+
+  test "should update lesson" do
+    patch lesson_url(@lesson),
+      params: {
+        lesson: {
+          title: "Updated Lesson",
+          body: "Updated body",
+          subject_id: @lesson.subject_id
+        }
+      },
+      as: :json
+    assert_response :success
+    body = JSON.parse(response.body)
+    assert_equal "Updated Lesson", body["title"]
+    assert_equal "Updated body", body["body"]
+  end
+
+  test "should not update lesson with invalid params" do
+    patch lesson_url(@lesson),
+      params: {
+        lesson: {
+          title: "",
+          body: "Invalid update",
+          subject_id: @lesson.subject_id
+        }
+      },
+      as: :json
+    assert_response :unprocessable_entity
+    body = JSON.parse(response.body)
+    assert body.present?
+  end
+
+  test "should destroy lesson" do
+    assert_difference("Lesson.count", -1) do
+      delete lesson_url(@lesson), as: :json
+    end
+    assert_response :no_content
+  end
 end

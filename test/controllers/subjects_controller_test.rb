@@ -38,4 +38,39 @@ class SubjectsControllerTest < ActionDispatch::IntegrationTest
     body = JSON.parse(response.body)
     assert body.present?
   end
+
+  test "should update subject" do
+    patch subject_url(@subject),
+      params: {
+        subject: {
+          title: "Updated Title",
+          description: "Updated description"
+        }
+      },
+      as: :json
+    assert_response :success
+    body = JSON.parse(response.body)
+    assert_equal "Updated Title", body["title"]
+    assert_equal "Updated description", body["description"]
+  end
+
+  test "should not update subject with invalid params" do
+    patch subject_url(@subject),
+      params: {
+        subject: {
+          title: ""
+        }
+      },
+      as: :json
+    assert_response :unprocessable_entity
+    body = JSON.parse(response.body)
+    assert body.present?
+  end
+
+  test "should destroy subject" do
+    assert_difference("Subject.count", -1) do
+      delete subject_url(@subject), as: :json
+    end
+    assert_response :no_content
+  end
 end

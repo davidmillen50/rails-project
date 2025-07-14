@@ -18,6 +18,24 @@ class GrammarRulesController < ApplicationController
     end
   end
 
+  def update
+    grammar_rule = GrammarRule.find(params[:id])
+    if grammar_rule.update(post_params)
+      render json: grammar_rule
+    else
+      render json: grammar_rule.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    grammar_rule = GrammarRule.find(params[:id])
+    if grammar_rule.destroy
+      head :no_content
+    else
+      render json: grammar_rule.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
     def post_params

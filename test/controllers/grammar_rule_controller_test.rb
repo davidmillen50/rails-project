@@ -39,4 +39,42 @@ class GrammarRulesControllerTest < ActionDispatch::IntegrationTest
     body = JSON.parse(response.body)
     assert body.present?
   end
+
+  test "should update grammar_rule" do
+    patch grammar_rule_url(@grammar_rule),
+      params: {
+        grammar_rule: {
+          title: "Updated Grammar Rule",
+          description: "Updated description",
+          subject_id: @grammar_rule.subject_id
+        }
+      },
+      as: :json
+    assert_response :success
+    body = JSON.parse(response.body)
+    assert_equal "Updated Grammar Rule", body["title"]
+    assert_equal "Updated description", body["description"]
+  end
+
+  test "should not update invalid grammar_rule" do
+    patch grammar_rule_url(@grammar_rule),
+      params: {
+        grammar_rule: {
+          title: "",
+          description: "Invalid update",
+          subject_id: @grammar_rule.subject_id
+        }
+      },
+      as: :json
+    assert_response :unprocessable_entity
+    body = JSON.parse(response.body)
+    assert body.present?
+  end
+
+  test "should destroy grammar_rule" do
+    assert_difference("GrammarRule.count", -1) do
+      delete grammar_rule_url(@grammar_rule), as: :json
+    end
+    assert_response :no_content
+  end
 end

@@ -18,6 +18,24 @@ class LessonsController < ApplicationController
     end
   end
 
+  def update
+    lesson = Lesson.find(params[:id])
+    if lesson.update(post_params)
+      render json: lesson
+    else
+      render json: lesson.errors, status: :unprocessable_entity
+    end
+  end
+
+  def destroy
+    lesson = Lesson.find(params[:id])
+    if lesson.destroy
+      head :no_content
+    else
+      render json: lesson.errors, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def post_params
